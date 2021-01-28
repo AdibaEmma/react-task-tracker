@@ -1,13 +1,15 @@
+import { FaTimes } from "react-icons/fa"
 import PropTypes from 'prop-types'
 import Button from "./Button"
 
 
-const Header = ({ title, onToggle }) => {
+const Header = ({ title, onToggle, close }) => {
 
     return (
         <header className="header">
             <h1>{ title }</h1>
-            <Button onClick={ onToggle } color="green" text="Add" />
+            { !close ? <Button onClick={ onToggle } color="green" text="Add" /> : 
+            <FaTimes style={{color: 'red', cursor: 'pointer', fontSize: '25px'}} onClick={onToggle} /> }
         </header>
     )
 }
